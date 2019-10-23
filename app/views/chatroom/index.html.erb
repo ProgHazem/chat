@@ -6,15 +6,15 @@
 <div class="ui two column grid">
   <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
-      <div class="content">
-        <div class="ui small feed">
+      <div class="content" id="message">
+        <div class="ui small feed" id="message_container">
           <% if @messages.any? %>
             <%= render @messages %>
           <% end %>
         </div>
       </div>
       <div class="extra content">
-        <%= form_for(@message, html: {class: 'ui reply form', role: 'form', autocomplete: "off"}, url: message_path) do |f| %>
+        <%= form_for(@message, html: {class: 'ui reply form', role: 'form', autocomplete: "off"}, url: message_path, remote: true) do |f| %>
           <div class="field">
             <div class="ui fluid icon">
               <div class="ui icon input">
